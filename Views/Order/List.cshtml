@@ -42,30 +42,30 @@ Story: User Story 2
         </tr>
     </thead>
     <tbody>
-    @foreach (var order in Model)
-    {
-        <tr>
-            <td>@order.OrderID</td>
-            <td>@order.Customer.FirstName @order.Customer.LastName</td>
-            <td>@order.Occasion</td>
-            <td>@order.DeliveryDate.ToShortDateString()</td>
-            <td>$@order.Budget</td>
-            <td>@order.Status</td>
-            <td>
-                <form asp-action="UpdateStatus" method="post">
-                    <input type="hidden" name="id" value="@order.OrderID" />
-                    <select name="status" class="form-control">
-                        <option>Pending</option>
-                        <option>Awaiting Customer Approval</option>
-                        <option>In Process</option>
-                        <option>Ready</option>
-                        <option>Picked Up</option>
-                    </select>
-                    <button type="submit" class="btn btn-sm btn-success">Update</button>
-                </form>
-            </td>
-        </tr>
-    }
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderID</td>
+                <td>@order.Customer.FirstName @order.Customer.LastName</td>
+                <td>@order.Occasion</td>
+                <td>@order.DeliveryDate.ToShortDateString()</td>
+                <td>$@order.Budget</td>
+                <td>@order.Status</td>
+                <td>
+                    <form asp-action="UpdateStatus" method="post">
+                        <input type="hidden" name="id" value="@order.OrderID" />
+                        <select name="status" class="form-control">
+                            <option>Pending</option>
+                            <option>Awaiting Customer Approval</option>
+                            <option>In Process</option>
+                            <option>Ready</option>
+                            <option>Picked Up</option>
+                        </select>
+                        <button type="submit" class="btn btn-sm btn-success">Update</button>
+                    </form>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 

@@ -1,5 +1,4 @@
-﻿
-@model CISS411_GroupProject.Models.ViewModels.OrderFormViewModel
+﻿@model CISS411_GroupProject.Models.ViewModels.OrderFormViewModel
 
 @*
     Course #: CISS 411
@@ -18,7 +17,7 @@ Story: User Story 2
 <h2>Place a Custom Order</h2>
 
 <form asp-action="Create" method="post">
-        @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
     <div class="form-group">
         <label asp-for="Order.Occasion"></label>
         <input asp-for="Order.Occasion" class="form-control" />
@@ -46,19 +45,19 @@ Story: User Story 2
             </tr>
         </thead>
         <tbody>
-        @for (int i = 0; i < Model.Items.Count; i++)
-        {
-            <tr>
-                <td>
-                    <input asp-for="Items[@i].ItemName" class="form-control" />
-                    <span asp-validation-for="Items[@i].ItemName" class="text-danger"></span>
-                </td>
-                <td>
-                    <input asp-for="Items[@i].Quantity" type="number" class="form-control" />
-                    <span asp-validation-for="Items[@i].Quantity" class="text-danger"></span>
-                </td>
-            </tr>
-        }
+            @for (int i = 0; i < Model.Items.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <input asp-for="Items[@i].ItemName" class="form-control" />
+                        <span asp-validation-for="Items[@i].ItemName" class="text-danger"></span>
+                    </td>
+                    <td>
+                        <input asp-for="Items[@i].Quantity" type="number" class="form-control" />
+                        <span asp-validation-for="Items[@i].Quantity" class="text-danger"></span>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 
@@ -66,6 +65,7 @@ Story: User Story 2
 </form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
-
